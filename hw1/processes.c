@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+int counter = 0;
+
 void child()
 {
     counter += 7;
@@ -15,7 +17,6 @@ void parent()
 
 int main(int argc, char* argv[])
 {
-    int counter = 0;
     int rc = fork();
     if (rc == 0) // Child Process
     {

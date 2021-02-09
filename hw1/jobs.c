@@ -15,6 +15,11 @@ int jobcmp(const void* a, const void* b)
     {
         return 1;
     }
+    else if (job_a->priority == job_b->priority && 
+            job_a->idx > job_b->idx)
+    {
+        return 1;
+    }
     else return 0;
 }
 
@@ -80,7 +85,6 @@ int main(int argc, char* argv[])
     int time_slice = 1;
     priority_rr(n_jobs, jobs, time_slice);
     assert(counter == 11);
-    printf("Counter %d\n", counter);
     free(jobs);
 }
 

@@ -4,8 +4,8 @@
 #include "create_procs.h"
 #include <assert.h>
 
-int grandchild();
-int child();
-int parent();
+void grandchild();
+void child();
+void parent();
 
 #endif

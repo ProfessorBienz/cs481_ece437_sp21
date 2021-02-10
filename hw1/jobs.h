@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef int (*Operation)();
+typedef void (*Operation)();
 typedef struct job
 {
     int idx;
@@ -14,9 +14,9 @@ typedef struct job
 } Job;
 
 int jobcmp(const void* a, const void* b);
-int job0(int time);
-int job1(int time);
-int job2(int time);
+void job0(int time);
+void job1(int time);
+void job2(int time);
 void create_jobs(int* n_jobs, Job** jobs);
 
 #endif

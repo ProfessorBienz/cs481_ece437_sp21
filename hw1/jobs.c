@@ -23,7 +23,7 @@ int jobcmp(const void* a, const void* b)
     else return 0;
 }
 
-int job0(int time)
+void job0(int time)
 {
     for (int t = 0; t < time; t++)
     {
@@ -31,7 +31,7 @@ int job0(int time)
     }
 }
 
-int job1(int time)
+void job1(int time)
 {
     for (int t = 0; t < time; t++)
     {
@@ -39,7 +39,7 @@ int job1(int time)
     }
 }
 
-int job2(int time)
+void job2(int time)
 {
     for (int t = 0; t < time; t++)
     {

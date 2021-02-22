@@ -29,27 +29,18 @@ TEST(ChildTest, TestsIntests)
     int n_items;
 
     n_items = read_word(buff);
-    if (n_items != EOF && buff[0] == 'C')
+    while (n_items != EOF && read_c == false)
     {
-        for (int i = 0; i < 5; i++)
-            ASSERT_EQ(buff[i], c[i]);
         read_c = true;
-    }
-
-    n_items = read_word(buff);
-    if (n_items != EOF && buff[0] == 'C' && read_c == false)
-    {
         for (int i = 0; i < 5; i++)
-            ASSERT_EQ(buff[i], c[i]);
-        read_c = true;       
-    }
-
-    n_items = read_word(buff);
-    if (n_items != EOF && buff[0] == 'C' && read_c == false)
-    {
-        for (int i = 0; i < 5; i++)
-            ASSERT_EQ(buff[i], c[i]);
-        read_c = true;       
+        {
+            if (buff[i] != c[i])
+            {
+                read_c = false;
+                break;
+            }
+        }
+        n_items = read_word(buff);
     }
 
     ASSERT_EQ(read_c, true);

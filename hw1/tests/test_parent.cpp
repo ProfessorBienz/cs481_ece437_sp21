@@ -30,27 +30,18 @@ TEST(GrandchildTest, TestsIntests)
     int n_items;
 
     n_items = read_word(buff);
-    if (n_items != EOF && buff[0] == 'P')
+    while (n_items != EOF && read_p == false)
     {
-        for (int i = 0; i < 6; i++)
-            ASSERT_EQ(buff[i], p[i]);
         read_p = true;
-    }
-
-    n_items = read_word(buff);
-    if (n_items != EOF && buff[0] == 'P' && read_p == false)
-    {
-        for (int i = 0; i < 6; i++)
-            ASSERT_EQ(buff[i], p[i]);
-        read_p = true;       
-    }
-
-    n_items = read_word(buff);
-    if (n_items != EOF && buff[0] == 'P' && read_p == false)
-    {
-        for (int i = 0; i < 6; i++)
-            ASSERT_EQ(buff[i], p[i]);
-        read_p = true;       
+        for (int i = 0; i < 5; i++)
+        {
+            if (buff[i] != p[i])
+            {
+                read_p = false;
+                break;
+            }
+        }
+        n_items = read_word(buff);
     }
 
     ASSERT_EQ(read_p, true);
